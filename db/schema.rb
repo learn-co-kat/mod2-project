@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_231208) do
+ActiveRecord::Schema.define(version: 2019_11_12_193821) do
 
   create_table "countries", force: :cascade do |t|
     t.text "name"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_11_11_231208) do
 
   create_table "writers", force: :cascade do |t|
     t.string "name"
-    t.string "nationality"
     t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

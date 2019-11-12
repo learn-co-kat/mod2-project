@@ -13,7 +13,17 @@ country_list = CSV.parse(csv_text)
 
 country_list.each do |row|
     name = row
-
     Country.create(name: name)
 end 
 
+#writer.all.sample
+
+emily = Writer.create(name: "Emily", age: 32)
+max = Writer.create(name: "Max", age: 41)
+mary = Writer.create(name: "Mary", age: 100) 
+
+Story.create(content: "A beer brewer who lives in Brussels.", subject: "Pascal", writer_id: emily.id, country_id: 13)
+Story.create(content: "A math student whose father is a pilot and teaches salsa.", subject: "Nadia", writer_id: max.id, country_id: 23)
+Story.create(content: "A professional tour guide who has climbed Everest.", subject: "Anna", writer_id: emily.id, country_id: 58)
+Story.create(content: "A chef who has three kids and a cat.", subject: "Amir", writer_id: mary.id, country_id: 89) 
+Story.create(content: "A cab driver who sings when she drives and tells stories about her years as an olympic water polo champion.", subject: "Eva", writer_id: max.id, country_id: 185)
