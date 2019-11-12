@@ -2,14 +2,17 @@ class StoriesController < ApplicationController
 
     def index
         @stories = Story.all
+        @countries = Country.all 
     end 
 
     def new
         @story = Story.new 
+        @countries = Country.all 
     end 
 
     def create
-        @story = Story.create(story_params) 
+        @story = Story.create(story_params)
+        redirect_to story_path(@story)
     end 
 
     def show 
@@ -23,10 +26,10 @@ class StoriesController < ApplicationController
     def update
         @story = Story.find(params[:id]) 
         @story = Story.update(story_params) 
-        redirect_to story_path 
+        redirect_to story_path(@story) 
     end 
 
-    def delete
+    def destroy 
 
     end 
 

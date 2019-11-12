@@ -1,5 +1,10 @@
-<h1> Stories... </h1>
+<h1> Peeps from Seattle & Beyond </h1>
 
 <% @stories.each do |story| %>
-    <%= link_to "#{story.subject} from #{story.country_id}", story_path %>
+    <%= link_to "#{story.subject} from #{@countries[story.country_id].name}", story_path(story) %><br><br>
 <% end %>
+<br>
+<br>
+<button>
+<%= link_to "Write your own story", new_story_path%> 
+</button>
