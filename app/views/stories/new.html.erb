@@ -11,7 +11,7 @@
 
     What's their story: <%= f.text_field :content %><br><br>
 
-    In which country? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br>
+    In which country ? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br>
 
     How would you categorize your story? <br><br>
         <% @tags.each do |tag| %>

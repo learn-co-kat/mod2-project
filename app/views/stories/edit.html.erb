@@ -1,0 +1,16 @@
+<h1>Edit your story</h1> 
+
+<%= form_with model: @story do |f| %>
+    
+    Who are you writing about? <%= f.text_field :subject %><br><br>
+
+    What's their story: <%= f.text_field :content %><br><br>
+
+    In which country ? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br>
+
+    How would you categorize your story? <br><br>
+        <% @tags.each do |tag| %>
+            <%= f.check_box :tags, {:multiple => true}, tag.id %>
+            <%= f.label tag.name %> 
+        <%end%>
+<% end %>
