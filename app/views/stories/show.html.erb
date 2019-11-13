@@ -1,11 +1,10 @@
 <h1> THE story </h1>
 
-<%= @story.subject %>
-<%= @story.content %>
-<%# <%= @story.country %> 
+<h4>Subject:</h4> <%= @story.subject %><br><br>
+<h4>Story:</h4> <%= @story.content %><br><br>
+<h4>Author:</h4> <%= @story.writer_id %><br><br>
+<h4>Country:</h4> <%= @story.country.name %><br><br>
 
-<br>
-<br>
 <button>
 <%= link_to "Edit", edit_story_path%> 
 </button>

@@ -14,12 +14,10 @@ class StoriesController < ApplicationController
 
     def create
         @story = Story.new(story_params)
-        if @story.save
-            Writer.create(params[:name], params[:age]) 
-            redirect_to story_path(@story)
-        else  
-            render :new 
-        end 
+        @story.save 
+        redirect_to story_path(@story)
+
+        Writer.create(params[:name], params[:age]) 
     end 
 
     def show 
