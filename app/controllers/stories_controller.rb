@@ -8,7 +8,6 @@ class StoriesController < ApplicationController
 
     def new
         @story = Story.new 
-        @writers = Writer.all
         @tags = Tag.all 
         @writers = Writer.all 
         @countries = Country.all
@@ -33,17 +32,15 @@ class StoriesController < ApplicationController
 
     def edit
         @story = Story.find(params[:id]) 
+        @tags = Tag.all 
+        @writers = Writer.all 
         @countries = Country.all
-        @tags = Tag.all
     end 
 
     def update
         @story = Story.find(params[:id])   
-        @story = Story.update(story_params[:name], story_params[:age])
+        @story.update(story_params)
         redirect_to story_path(@story) 
-
-        @countries = Country.all
-        @tags = Tag.all
     end 
 
     def destroy 
