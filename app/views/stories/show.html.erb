@@ -8,7 +8,11 @@
 <button>
 <%= link_to "Edit", edit_story_path%> 
 </button>
+<br>
+<br>
+
+<%= button_to "Delete this story", @story, method: :delete %> 
 
 <button>
 <%= link_to "Home", stories_path%> 
-</button>
+</button> 
