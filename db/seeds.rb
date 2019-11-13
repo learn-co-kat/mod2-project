@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Writer.destroy_all
+Tag.destroy_all
+Story.destroy_all
+
 require 'csv'
 
 csv_text = File.read("./db/World_countries.csv")

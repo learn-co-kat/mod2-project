@@ -1,17 +1,21 @@
-<h1>Create your own story</h1>
+<h1>Create your own story</h1> 
 
-<%=form_for @story do |f| %>
+<%= form_with model: @story do |f| %>
+    What's your (writer) name? <%= collection_select :story, :writer_id, @writers, :id, :name %><br><br>
+    
+    Or enter your name & age:<br>
+    <%= f.text_field :name %>
+    <%= f.number_field :age %><br><br> 
+    
     Who have you met? <%= f.text_field :subject %><br><br>
-    What's their story: <%= f.text_field :content %><br><br>
-    In which country? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br>
-    <%=f.submit%>
-<%end%> 
 
-<%= form_with model: @story |f| %>
-    What's your (writer) name? <%= f.text_field :writer_id %><br><br>
-    Who have you met? <%= f.text_field :subject %><br><br>
     What's their story: <%= f.text_field :content %><br><br>
+
     In which country? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br>
-    How would you categorize your story? <%= f.text_field :TAG????? %><br><br>
-    <%=f.submit%>
-<%end%>
+
+    How would you categorize your story? 
+        <% @tags.each do |tag| %>
+            <%= f.check_box :tags, {:multiple => true}, tag.id %>
+            <%= f.label tag.name %> 
+        <%end%>
+<% end %>

@@ -8,11 +8,20 @@ class StoriesController < ApplicationController
     def new
         @story = Story.new 
         @countries = Country.all 
+        @tags = Tag.all 
+        @writers = Writer.all 
     end 
 
     def create
-        @story = Story.create(story_params)
-        redirect_to story_path(@story)
+        @story = Story.new(story_params)
+        if @story.save
+            redirect_to story_path(@story)
+        else  
+            render :new 
+        end 
+
+        @writer = Writer.create(params[:name], params[:age]) 
+
     end 
 
     def show 

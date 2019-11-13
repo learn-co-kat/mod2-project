@@ -19,7 +19,7 @@ class WritersController < ApplicationController
     private
 
     def writer_params
-        params.require(:writer).permit(:name, :nationality, :age)
+        params.require(:writer).permit(:name, :age)
     end 
 
 end
