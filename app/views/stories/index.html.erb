@@ -4,10 +4,12 @@
     <%= link_to "#{story.subject} from #{@countries[story.country_id].name}", story_path(story) %><br><br>
 <% end %>
 <br>
-<% @writers.each do |writer| %>
-    <%=  writer.name %><br>
-<% end %>
-<br>
 <button>
 <%= link_to "Write your own story", new_story_path%> 
 </button>
+
+<br>
+<h3> Our writers </h3>
+<% @writers.each do |writer| %>
+    <%=  writer.name %><br>
+<% end %>

@@ -8,26 +8,27 @@ class StoriesController < ApplicationController
 
     def new
         @story = Story.new 
-        @countries = Country.all 
+        @writers = Writer.all
         @tags = Tag.all 
         @writers = Writer.all 
+        @countries = Country.all
     end 
 
     def create
         @story = Story.new(story_params) 
         if @story.valid?
+            @author = Writer.create(name: writer_name, age: writer_age)  
+            @story.writer_id = @author.id 
             @story.save 
-            # byebug
-            Writer.create(name: writer_name, age: writer_age)  
             redirect_to story_path(@story)
         else  
             render :new 
         end 
     end 
 
-    def show 
+    def show  
         @story = Story.find(params[:id]) 
-        @writers = Writer.all
+        @writer = Writer.find(@story.writer_id)  
     end 
 
     def edit
