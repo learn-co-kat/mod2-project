@@ -3,6 +3,7 @@ class StoriesController < ApplicationController
     def index
         @stories = Story.all
         @countries = Country.all 
+        @writers = Writer.all 
     end 
 
     def new
