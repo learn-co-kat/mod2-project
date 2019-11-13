@@ -13,15 +13,20 @@ class StoriesController < ApplicationController
     end 
 
     def create
-        @story = Story.new(story_params)
-        @story.save 
-        redirect_to story_path(@story)
-
-        Writer.create(params[:name], params[:age]) 
+        @story = Story.new(story_params) 
+        if @story.valid?
+            @story.save 
+            # byebug
+            Writer.create(name: writer_name, age: writer_age)  
+            redirect_to story_path(@story)
+        else  
+            render :new 
+        end 
     end 
 
     def show 
         @story = Story.find(params[:id]) 
+        @writers = Writer.all
     end 
 
     def edit
@@ -31,9 +36,10 @@ class StoriesController < ApplicationController
     end 
 
     def update
-        @story = Story.find(params[:id]) 
-        @story = Story.update(story_params) 
+        @story = Story.find(params[:id])   
+        @story = Story.update(story_params[:name], story_params[:age])
         redirect_to story_path(@story) 
+
         @countries = Country.all
         @tags = Tag.all
     end 
@@ -45,7 +51,14 @@ class StoriesController < ApplicationController
     private
 
     def story_params
-        params.require(:story).permit(:content, :subject, :writer_id, :country_id) 
+        params.require(:story).permit(:content, :subject, :writer_id, :country_id, writers_attributes: [:name, :age]) 
     end 
 
+    def writer_name
+        params.require(:story)[:writers][:name]
+    end 
+
+    def writer_age
+        params.require(:story)[:writers][:age]
+    end 
 end
