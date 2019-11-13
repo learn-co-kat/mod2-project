@@ -14,15 +14,12 @@ class StoriesController < ApplicationController
     end 
 
     def create
-        
-        byebug
         if writer_name == ""
             @story = Story.new(story_params(:content, :subject, :writer_id, :country_id)) 
             @story.save 
             redirect_to story_path(@story) 
             elsif writer_name 
                 @author = Writer.create(name: writer_name, age: writer_age)  
-                # @story = Story.new(story_params(:content, :subject, writer_id: @author.id, :country_id)) 
                 @story.save 
                 redirect_to story_path(@story)
         else  
