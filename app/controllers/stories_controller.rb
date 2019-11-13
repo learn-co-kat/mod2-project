@@ -21,7 +21,6 @@ class StoriesController < ApplicationController
         end 
 
         @writer = Writer.create(params[:name], params[:age]) 
-
     end 
 
     def show 
