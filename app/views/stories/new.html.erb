@@ -6,3 +6,12 @@
     In which country? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br>
     <%=f.submit%>
 <%end%> 
+
+<%= form_with model: @story |f| %>
+    What's your (writer) name? <%= f.text_field :writer_id %><br><br>
+    Who have you met? <%= f.text_field :subject %><br><br>
+    What's their story: <%= f.text_field :content %><br><br>
+    In which country? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br>
+    How would you categorize your story? <%= f.text_field :TAG????? %><br><br>
+    <%=f.submit%>
+<%end%>
