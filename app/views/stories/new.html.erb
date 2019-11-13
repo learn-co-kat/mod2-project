@@ -1,7 +1,7 @@
 <h1>Create your own story</h1> 
 
 <%= form_with model: @story do |f| %>
-    Select your name  <%= collection_select :story, :writer_id, @writers, :id, :name %>
+    Select your name  <%= f.collection_select :writer_id, @writers, :id, :name, {prompt: true} %>
     
     or enter your name & age:
 
