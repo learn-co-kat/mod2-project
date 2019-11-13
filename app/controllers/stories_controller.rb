@@ -28,12 +28,16 @@ class StoriesController < ApplicationController
 
     def edit
         @story = Story.find(params[:id]) 
+        @countries = Country.all
+        @tags = Tag.all
     end 
 
     def update
         @story = Story.find(params[:id]) 
         @story = Story.update(story_params) 
         redirect_to story_path(@story) 
+        @countries = Country.all
+        @tags = Tag.all
     end 
 
     def destroy 
