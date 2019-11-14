@@ -14,14 +14,19 @@ class StoriesController < ApplicationController
     end 
 
     def create
+        @tags = 
         if writer_name == ""
             @story = Story.new(story_params(:content, :subject, :writer_id, :country_id)) 
             @story.save 
             redirect_to story_path(@story) 
-            elsif writer_name 
-                @author = Writer.create(name: writer_name, age: writer_age)  
+
+            elsif writer_name.length > 0 
+                @author = Writer.create(name: writer_name, age: writer_age) 
+                @story = Story.new(story_params(:content, :subject, :writer_id, :country_id)) 
+                @story.writer_id = @author.id  
                 @story.save 
                 redirect_to story_path(@story)
+
         else  
             render :new 
         end 
@@ -64,4 +69,13 @@ class StoriesController < ApplicationController
     def writer_age
         params.require(:story)[:writers][:age]
     end 
+
+    def filtertags
+        params[:story][:tags].delete_if { |num| num == 0}
+    end 
+
+    #create striptag --> refer to it in create (if 0, delete) takes in param as arg
+    #create variable in create that picks up return value of striptag
+    #for each tag, make a story tag
+    #use find or create by
 end
