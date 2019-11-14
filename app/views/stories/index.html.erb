@@ -13,3 +13,11 @@
 <% @writers.each do |writer| %>
     <%=  link_to writer.name, writer_path(writer) %><br>
 <% end %>
+
+<h3> Search stories by category </h3>
+<% @tags.each do |tag| %>
+    <%=  link_to tag.name, tag_path(tag) %><br>
+<% end %>
+
+<%= image_tag("/../../../assets/photo_montage.jpg") %>
+

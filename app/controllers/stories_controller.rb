@@ -4,6 +4,7 @@ class StoriesController < ApplicationController
         @stories = Story.all
         @countries = Country.all 
         @writers = Writer.all 
+        @tags = Tag.all
     end 
 
     def new
