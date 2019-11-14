@@ -39,8 +39,11 @@
   }
 
   header {
-    background-color: burlywood;
-    padding: 3em;
+    height: 2cm;
+    font-size: larger;
+    text-align: center;
+    padding-top: 0.5in;
+    text-underline-position: under;
   }
 
   p {
