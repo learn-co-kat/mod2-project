@@ -5,18 +5,17 @@
 <h4>Author:</h4> <%= @writer.name %><br><br>
 <h4>Country:</h4> <%= @story.country.name %><br><br>
 <h4>Tags:</h4> 
-    <%= @tags.each do |tag| %><br><br>
-        <%=tag.name%>
+    <% @tags.each do |tag| %>
+        <%=tag.name %><br>
     <% end %>
-
+<br>
+<br>
 <button>
 <%= link_to "Edit", edit_story_path%> 
 </button>
 <br>
-<br>
-
 <%= button_to "Delete this story", @story, method: :delete %> 
-
+<br>
 <button>
 <%= link_to "Home", stories_path%> 
 </button> 
