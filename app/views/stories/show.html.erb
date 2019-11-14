@@ -1,4 +1,9 @@
-<h1> The story </h1>
+  <header>
+      <%= link_to "Home", stories_path %>
+      <%= link_to "Write a story", new_story_path %>
+  </header>
+  
+  <h1> The story </h1>
 
 <h4>Subject:</h4> <%= @story.subject %><br><br>
 <h4>Story:</h4> <%= @story.content %><br><br>

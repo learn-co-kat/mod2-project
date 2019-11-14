@@ -28,22 +28,22 @@
   }
 
   h1 {
-      font-style: normal;
-      font-size: x-large;
-      text-align: center;
-      font-family: 'GT Sectra Display Light';
+    font-style: normal;
+    font-size: x-large;
+    text-align: center;
+    font-family: 'GT Sectra Display Light';
   }
 
   body {
-      background-color: snow;
+    background-color: snow;
   }
 
   header {
-      background-blend-mode: darken;
-      background-color: steelblue;
+    background-color: burlywood;
+    padding: 3em;
   }
 
   p {
-        font-family: 'GT Sectra Display Light';
-        font-weight: lighter;
+    font-family: 'GT Sectra Display Light';
+    font-weight: lighter;
 } 

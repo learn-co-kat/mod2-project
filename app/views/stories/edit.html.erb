@@ -1,4 +1,9 @@
-<h1>Edit your story</h1> 
+  <header>
+      <%= link_to "Home", stories_path %>
+      <%= link_to "Write a story", new_story_path %>
+  </header>
+  
+  <h1>Edit your story</h1> 
 
 <%= form_with model: @story do |f| %>
     

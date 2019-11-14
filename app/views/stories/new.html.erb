@@ -1,4 +1,9 @@
-<h1>Create your own story</h1> 
+  <header>
+      <%= link_to "Home", stories_path %>
+      <%= link_to "Write a story", new_story_path %>
+  </header>
+  
+  <h1>Create your own story</h1> 
 
 <%= form_with model: @story do |f| %>
     <p>Select your name  <%= f.collection_select :writer_id, @writers, :id, :name, {prompt: true} %></p>

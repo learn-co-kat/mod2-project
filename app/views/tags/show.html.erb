@@ -1,4 +1,9 @@
-<h1> <%= @tag.name %> </h1>
+  <header>
+      <%= link_to "Home", stories_path %>
+      <%= link_to "Write a story", new_story_path %>
+  </header>
+  
+  <h1> <%= @tag.name %> </h1>
 
 <% @writer.stories.each do |story| %><br>
     <h4><%= story.subject %><br></h4>
