@@ -9,6 +9,7 @@
 Writer.destroy_all
 Tag.destroy_all
 Story.destroy_all
+Country.destroy_all
 
 require 'csv'
 
@@ -16,11 +17,8 @@ csv_text = File.read("./db/World_countries.csv")
 country_list = CSV.parse(csv_text)
 
 country_list.each do |row|
-    name = row
-    Country.create(name: name)
+    Country.create(name: row[0].to_s)
 end 
-
-#writer.all.sample
 
 emily = Writer.create(name: "Emily", age: 32)
 max = Writer.create(name: "Max", age: 41)
