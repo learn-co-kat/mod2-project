@@ -13,7 +13,7 @@
 </button>
 
 <br>
-<h3> Our writers </h3>
+<h3> View our writers' stories </h3>
 <% @writers.each do |writer| %>
     <p><%=  link_to writer.name, writer_path(writer) %></p>
 <% end %>

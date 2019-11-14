@@ -5,20 +5,4 @@
   
   <h1>Edit your story</h1> 
 
-<%= form_with model: @story do |f| %>
-    
-    <p>Who are you writing about? <%= f.text_field :subject %><br><br></p>
-
-    <p>What's their story: <%= f.text_field :content %><br><br></p>
-
-    <p>In which country ? <%= collection_select :story, :country_id, @countries, :id, :name %><br><br></p>
-
-    <p>How would you categorize your story? <br><br>
-        <% @tags.each do |tag| %>
-           <p> <%= f.check_box :tags, {:multiple => true}, tag.id %></p>
-            <p><%= f.label tag.name %> </p>
-        <%end%>
-        <br>
-        <br>
-    <%= f.submit %>
-<% end %>
+  <%= render 'form' %>

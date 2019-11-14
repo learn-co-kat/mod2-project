@@ -1,35 +1,8 @@
-  <header>
+<header>
       <%= link_to "Home", stories_path %>
       <%= link_to "Write a story", new_story_path %>
-  </header>
+</header>
   
-  <h1>Create your own story</h1> 
+<h1>Create your own story</h1> 
 
-<%= form_with model: @story do |f| %>
-    <p>Select your name  <%= f.collection_select :writer_id, @writers, :id, :name, {prompt: true} %></p>
-    
-    <p>Or enter your name & age:</p>
-
-    <%= f.fields_for :writers do |writer| %> 
-        <p>Name  <%= writer.text_field :name %></p>
-        <p>Age  <%= writer.number_field :age %></p>
-    <% end %>
-    <br>
-    <p>Who are you writing about? <%= f.text_field :subject %><br><br></p>
-
-   <p> What's their story: <%= f.text_area :content %><br><br></p>
-
-    <p>In which country ? <%= f.collection_select :country_id, @countries, :id, :name %><br><br></p>
-
-    <p>How would you categorize your story? <br><br></p>
-        <% @tags.each do |tag| %>
-           <%= f.check_box :tags, {:multiple => true}, tag.id %>
-           <%= f.label tag.name %>
-        <%end%>
-        <br>
-        <br>
-    <%= f.submit %>
-<% end %>
-
-<p>
-</p>
+<%= render 'form' %>
