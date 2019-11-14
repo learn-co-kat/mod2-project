@@ -11,5 +11,5 @@
 <br>
 <h3> Our writers </h3>
 <% @writers.each do |writer| %>
-    <%=  writer.name %><br>
+    <%=  link_to writer.name, writer_path(writer) %><br>
 <% end %>
