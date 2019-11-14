@@ -1,28 +1,30 @@
 <h1>Create your own story</h1> 
 
 <%= form_with model: @story do |f| %>
-    Select your name  <%= f.collection_select :writer_id, @writers, :id, :name, {prompt: true} %>
+    <p>Select your name  <%= f.collection_select :writer_id, @writers, :id, :name, {prompt: true} %></p>
     
-    or enter your name & age:
+    <p>Or enter your name & age:</p>
 
     <%= f.fields_for :writers do |writer| %> 
-        <%= writer.text_field :name %>
-        <%= writer.number_field :age %> 
+        <p>Name  <%= writer.text_field :name %></p>
+        <p>Age  <%= writer.number_field :age %></p>
     <% end %>
     <br>
-    <br> 
-    Who are you writing about? <%= f.text_field :subject %><br><br>
+    <p>Who are you writing about? <%= f.text_field :subject %><br><br></p>
 
-    What's their story: <%= f.text_field :content %><br><br>
+   <p> What's their story: <%= f.text_area :content %><br><br></p>
 
-    In which country ? <%= f.collection_select :country_id, @countries, :id, :name %><br><br>
+    <p>In which country ? <%= f.collection_select :country_id, @countries, :id, :name %><br><br></p>
 
-    How would you categorize your story? <br><br>
+    <p>How would you categorize your story? <br><br></p>
         <% @tags.each do |tag| %>
-            <%= f.check_box :tags, {:multiple => true}, tag.id %>
-            <%= f.label tag.name %> 
+           <%= f.check_box :tags, {:multiple => true}, tag.id %>
+           <%= f.label tag.name %>
         <%end%>
         <br>
         <br>
     <%= f.submit %>
 <% end %>
+
+<p>
+</p>

@@ -1,23 +1,18 @@
-<h1> Peeps from Seattle & Beyond </h1>
-
 <% @stories.each do |story| %>
-    <%= link_to "#{story.subject} from #{@countries[story.country_id-1].name}", story_path(story) %><br><br>
+   <p> <%= link_to "#{story.subject} from #{@countries[story.country_id-1].name}", story_path(story) %><br><br></p>
 <% end %>
 <br>
 <button>
-<%= link_to "Write your own story", new_story_path%> 
+<p><%= link_to "Write your own story", new_story_path%> </p>
 </button>
 
 <br>
 <h3> Our writers </h3>
 <% @writers.each do |writer| %>
-    <%=  link_to writer.name, writer_path(writer) %><br>
+    <p><li><%=  link_to writer.name, writer_path(writer) %><br></li></p>
 <% end %>
 
 <h3> Search stories by category </h3>
 <% @tags.each do |tag| %>
-    <%=  link_to tag.name, tag_path(tag) %><br>
+    <p><li><%=  link_to tag.name.capitalize, tag_path(tag) %><br></li></p>
 <% end %>
-
-<%= image_tag("/../../../assets/photo_montage.jpg") %>
-
