@@ -16,12 +16,10 @@ class StoriesController < ApplicationController
     def create
         if writer_name == ""
             @story = Story.new(story_params(:content, :subject, :writer_id, :country_id))
-            byebug
             @tags = filtertags
             @story.save 
             @tags.each do |tag_id|
-                # make a new relationship
-                StoryTag.create(:tag_id => tag_id.to_i, :story_id => @story.id)
+                StoryTag.create(:tag_id => tag_id, :story_id => @story.id) #tag_id.to_i 
             end
             redirect_to story_path(@story) 
 
@@ -29,6 +27,10 @@ class StoriesController < ApplicationController
                 @author = Writer.create(name: writer_name, age: writer_age) 
                 @story = Story.new(story_params(:content, :subject, :writer_id, :country_id)) 
                 @story.writer_id = @author.id  
+                @tags = filtertags
+                @tags.each do |tag_id|
+                    StoryTag.create(:tag_id => tag_id, :story_id => @story.id) #tag_id.to_i 
+                end
                 @story.save 
                 redirect_to story_path(@story)
 
@@ -40,6 +42,7 @@ class StoriesController < ApplicationController
     def show  
         @story = Story.find(params[:id]) 
         @writer = Writer.find(@story.writer_id)  
+        @tags = @story.tags 
     end 
 
     def edit

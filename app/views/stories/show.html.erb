@@ -4,6 +4,10 @@
 <h4>Story:</h4> <%= @story.content %><br><br>
 <h4>Author:</h4> <%= @writer.name %><br><br>
 <h4>Country:</h4> <%= @story.country.name %><br><br>
+<h4>Tags:</h4> 
+    <%= @tags.each do |tag| %><br><br>
+        <%=tag.name%>
+    <% end %>
 
 <button>
 <%= link_to "Edit", edit_story_path%> 
