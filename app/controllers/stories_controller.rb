@@ -14,10 +14,15 @@ class StoriesController < ApplicationController
     end 
 
     def create
-        @tags = 
         if writer_name == ""
-            @story = Story.new(story_params(:content, :subject, :writer_id, :country_id)) 
+            @story = Story.new(story_params(:content, :subject, :writer_id, :country_id))
+            byebug
+            @tags = filtertags
             @story.save 
+            @tags.each do |tag_id|
+                # make a new relationship
+                StoryTag.create(:tag_id => tag_id.to_i, :story_id => @story.id)
+            end
             redirect_to story_path(@story) 
 
             elsif writer_name.length > 0 
@@ -71,7 +76,7 @@ class StoriesController < ApplicationController
     end 
 
     def filtertags
-        params[:story][:tags].delete_if { |num| num == 0}
+        params[:story][:tags].delete_if { |num| num.to_i == 0}
     end 
 
     #create striptag --> refer to it in create (if 0, delete) takes in param as arg
