@@ -7,6 +7,6 @@
 
 <% @writer.stories.each do |story| %><br>
     <h4><%= story.subject %><br></h4>
-  <p>  <%= story.content %></p>
+  <p> <div class="story_content_show_page"> <%= story.content %></div></p>
     <br>
     <% end %>
