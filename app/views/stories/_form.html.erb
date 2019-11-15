@@ -7,10 +7,13 @@
         <p>Name  <%= writer.text_field :name %></p>
     <% end %>
     <br>
+  
     <p>Who are you writing about? <%= f.text_field :subject %><br><br></p>
-    <div class="story_content">
-   <p> What's their story: <%= f.text_area :content %><br><br></p>
-    </div>
+
+   <p> What's their story: </p>  <textarea id="styled" <%= f.text_area :content %> </textarea>
+   
+   <br><br>
+
     <p>In which country ? <%= f.collection_select :country_id, @countries, :id, :name %><br><br></p>
 
     <p>How would you categorize your story? <br><br></p>
@@ -20,5 +23,7 @@
         <%end%>
         <br>
         <br>
-    <%= f.submit %>
+    <button>
+    <%= f.submit 'Create / Update', :class => 'create_update_buttons'%>
+    </button>
 <% end %>
