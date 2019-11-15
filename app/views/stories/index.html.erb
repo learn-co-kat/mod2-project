@@ -1,27 +1,30 @@
   <header>
-      <%= link_to "Home", stories_path %>
+      <%= link_to "Home", stories_path %>   
       <%= link_to "Write a story", new_story_path %>
   </header>
   
 <div class="left_column">
-<h3> Stories </h3>
-  <% @stories.each do |story| %>
-   <p> <%= link_to "#{story.subject} from #{@countries[story.country_id-1].name}", story_path(story) %></p>
-<% end %>
+  <h3> Stories </h3>
+    <% @stories.each do |story| %>
+    <p> <%= link_to "#{story.subject} from #{@countries[story.country_id-1].name}", story_path(story) %></p>
+  <% end %>
+
+  <br>
+
+  <button>
+    <div class="write_your_own_story">
+       <p><%= link_to "Write your own story", new_story_path%> </p>
+    </div>
+  </button>
+
+  <br>
+  
 </div>
 
-<div class="right_column">
-<h3> View our writers' stories </h3>
+<h3> Writers </h3>
 <% @writers.each do |writer| %>
     <p><%=  link_to writer.name, writer_path(writer) %></p>
 <% end %>
-</div>
-
-<br>
-<button>
-<p><%= link_to "Write your own story", new_story_path%> </p>
-</button>
-<br>
 
 <div class="category_banner">
   <h3> View stories by category </h3>

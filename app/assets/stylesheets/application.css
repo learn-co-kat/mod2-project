@@ -19,7 +19,7 @@
     border: 1px solid black;
     padding: 10px 30px;
     font-family: 'Merriweather';
-    font-weight: bold;
+    font-weight: bolder;
     letter-spacing: 3px;
     font-size: 14px;
     outline: 0px;
@@ -34,19 +34,35 @@
     font-family: 'GT Sectra Display Light';
   }
 
+  h3 {
+    font-family: 'GT Sectra Display Light';
+  }
+
   body {
     background-color: snow;
   }
 
   header {
-    height: 1cm;
     font-size: larger;
     text-align: center;
-    padding-top: 0.5in;
+    padding-top: 5mm;
+    padding-bottom: 5mm;
     text-underline-position: under;
   }
 
   p {
     font-family: 'GT Sectra Display Light';
     font-weight: lighter;
-} 
+  } 
+
+  a {
+    color: rgb(8, 72, 124);
+  }
+
+a:active {
+  color: blueviolet;
+}
+
+a:hover {
+  color: brown;
+}
