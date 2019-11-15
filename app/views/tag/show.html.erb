@@ -5,11 +5,13 @@
   
 <h1> <%= @tag.name %> stories</h1>
 
+<br>
+
 <% @stories.each do |story| %>
     <% story.story_tags.each do |story_tag| %>
       <% if story_tag.tag_id == @tag.id %>
           <h3><%= story.subject %></h3><br>
-          <%= story.content %><br><br>
+          <div class="story_content_show_page"><%= story.content %></div><br><br>
       <% end %>
   <% end %>
 <% end %> 

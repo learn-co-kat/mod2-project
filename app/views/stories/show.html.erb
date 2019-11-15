@@ -1,18 +1,21 @@
-  <header>
-      <%= link_to "Home", stories_path %>
-      <%= link_to "Write a story", new_story_path %>
-  </header>
+<header>
+    <%= link_to "Home", stories_path %>
+    <%= link_to "Write a story", new_story_path %>
+</header>
   
-  <h1> The story </h1>
+<h1> The story </h1>
+
+<br>
 
 <h4>Subject:</h4> <%= @story.subject %><br><br>
-<h4>Story:</h4> <div class="story_content_show_page"> <%= @story.content %></div><br><br>
+<h4>Story:</h4> <div class="story_content_show_page"> <%= @story.content %></div><br>
 <h4>Author:</h4> <%= @writer.name %><br><br>
 <h4>Country:</h4> <%= @story.country.name %><br><br>
 <h4>Tags:</h4> 
     <% @tags.each do |tag| %>
        <p> <%=tag.name %><br></p>
     <% end %>
+
 <br>
 <br>
 

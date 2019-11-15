@@ -1,9 +1,11 @@
-  <header>
-      <%= link_to "Home", stories_path %>
-      <%= link_to "Write a story", new_story_path %>
-  </header>
+<header>
+    <%= link_to "Home", stories_path %>
+    <%= link_to "Write a story", new_story_path %>
+</header>
   
-  <h1> <%= @writer.name %> </h1>
+<h1> <%= @writer.name %> </h1>
+
+<br>
 
 <% @writer.stories.each do |story| %><br>
     <h4><%= story.subject %><br></h4>
