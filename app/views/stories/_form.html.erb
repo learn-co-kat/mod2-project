@@ -8,9 +8,9 @@
     <% end %>
     <br>
     <p>Who are you writing about? <%= f.text_field :subject %><br><br></p>
-
+    <div class="story_content">
    <p> What's their story: <%= f.text_area :content %><br><br></p>
-
+    </div>
     <p>In which country ? <%= f.collection_select :country_id, @countries, :id, :name %><br><br></p>
 
     <p>How would you categorize your story? <br><br></p>

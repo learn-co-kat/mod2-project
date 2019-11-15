@@ -20,5 +20,5 @@
 
 <h3> Search stories by category </h3>
 <% @tags.each do |tag| %>
-    <p><%=  link_to tag.name.capitalize, tag_path(tag) %></p>
+    <%=  link_to tag.name.capitalize, tag_path(tag) %>
 <% end %>
