@@ -34,5 +34,15 @@ textarea#styled {
   background-color: rgb(238, 228, 219);
   padding-top: 2mm;
   padding-bottom: 5mm;
-  color: rgb(105, 52, 27);
+  color: rgb(120, 52, 27);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.left_column {
+  float: left;
+  width: 50%;
+  padding: 10px;
 }
