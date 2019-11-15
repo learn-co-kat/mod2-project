@@ -8,11 +8,7 @@ Welcome to "Humans of Seattle & Beyond", a web application that enables users to
 
 * At the moment there is no test suite for this project.
 
-* Services (job queues, cache servers, search engines, etc.) // TO BE COMPLETED
-
-* To fire up this project and start writing fun stories, you must first fork & clone the repository and open up this project in your preferred IDE. 
-
-* From there; open up your terminal and navigate to this project's folder.
+* To fire up this project and start writing fun stories, you must first fork & clone the repository to your local machine. Then, open up this project in your preferred IDE. 
 
 * Run bundle install in order to have access to all the gems in this project:
 
@@ -27,3 +23,5 @@ rails s
 ```
 
 * Navigate to your local host, in this case most likely http://localhost:3000/
+
+* Start writing!
