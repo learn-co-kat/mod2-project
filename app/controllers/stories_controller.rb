@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
 
     def create
         if writer_name == ""
-            @story = Story.new(story_params(:content, :subject, :writer_id, :country_id))
+            @story = Story.new(story_params)
             @tags = filtertags
             @story.save 
             @tags.each do |tag_id| 
@@ -26,7 +26,7 @@ class StoriesController < ApplicationController
 
             elsif writer_name.length > 0 
                 @author = Writer.create(name: writer_name, age: writer_age) 
-                @story = Story.new(story_params(:content, :subject, :writer_id, :country_id)) 
+                @story = Story.new(story_params) 
                 @story.writer_id = @author.id  
                 @tags = filtertags
                 @tags.each do |tag_id|
@@ -54,8 +54,12 @@ class StoriesController < ApplicationController
     end 
 
     def update
-        @story = Story.find(params[:id])   
-        @story.update(story_params(:content, :subject, :writer_id, :country_id))
+        @story = Story.find(params[:id])  
+        @tags = filtertags 
+        @tags.each do |tag_id| 
+            StoryTag.create(:tag_id => tag_id, :story_id => @story.id) 
+        end
+        @story.update(story_params)
         redirect_to story_path(@story) 
     end 
 
@@ -66,9 +70,8 @@ class StoriesController < ApplicationController
 
     private
 
-    def story_params(*args)
-        # params.require(:story).permit(:content, :subject, :writer_id, :country_id) 
-        params.require(:story).permit(*args)
+    def story_params
+        params.require(:story).permit(:content, :subject, :writer_id, :country_id)
     end 
 
     def writer_name
@@ -82,9 +85,4 @@ class StoriesController < ApplicationController
     def filtertags
         params[:story][:tags].delete_if { |num| num.to_i == 0}
     end 
-
-    #create striptag --> refer to it in create (if 0, delete) takes in param as arg
-    #create variable in create that picks up return value of striptag
-    #for each tag, make a story tag
-    #use find or create by
 end
