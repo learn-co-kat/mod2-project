@@ -1,7 +1,17 @@
-  <header>
-      <%= link_to "Home", stories_path %>
-      <%= link_to "Write a story", new_story_path %>
-  </header>
+<header>
+    <%= link_to "Home", stories_path %>
+    <%= link_to "Write a story", new_story_path %>
+</header>
   
-  <h1> <%= @tag.name %> stories</h1>
+<h1> <%= @tag.name %> stories</h1>
 
+<% @stories.each do |story| %>
+    <% story.story_tags.each do |story_tag| %>
+      <% if story_tag.tag_id == @tag.id %>
+          <%= story.subject %>
+          <%= story.content %>
+          <%else%>
+          <%= "No stories with #{@tag.name} tag." %>
+      <% end %>
+  <% end %>
+<% end %> 

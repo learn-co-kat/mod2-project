@@ -18,7 +18,7 @@
     <p><%=  link_to writer.name, writer_path(writer) %></p>
 <% end %>
 
-<h3> Search stories by category </h3>
+<h3> View stories by category </h3>
 <% @tags.each do |tag| %>
     <%=  link_to tag.name.capitalize, tag_path(tag) %>
 <% end %>

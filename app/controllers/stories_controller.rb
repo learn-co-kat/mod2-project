@@ -19,8 +19,8 @@ class StoriesController < ApplicationController
             @story = Story.new(story_params(:content, :subject, :writer_id, :country_id))
             @tags = filtertags
             @story.save 
-            @tags.each do |tag_id|
-                StoryTag.create(:tag_id => tag_id, :story_id => @story.id) #tag_id.to_i 
+            @tags.each do |tag_id| 
+                StoryTag.create(:tag_id => tag_id, :story_id => @story.id) 
             end
             redirect_to story_path(@story) 
 
@@ -30,8 +30,9 @@ class StoriesController < ApplicationController
                 @story.writer_id = @author.id  
                 @tags = filtertags
                 @tags.each do |tag_id|
-                    StoryTag.create(:tag_id => tag_id, :story_id => @story.id) #tag_id.to_i 
+                    StoryTag.create(:tag_id => tag_id, :story_id => @story.id) 
                 end
+                byebug
                 @story.save 
                 redirect_to story_path(@story)
 
@@ -42,7 +43,7 @@ class StoriesController < ApplicationController
 
     def show  
         @story = Story.find(params[:id]) 
-        @writer = Writer.find(@story.writer_id)  
+        @writer = Writer.find(@story.writer_id) 
         @tags = @story.tags 
     end 
 
