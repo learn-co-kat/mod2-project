@@ -8,10 +8,8 @@
 <% @stories.each do |story| %>
     <% story.story_tags.each do |story_tag| %>
       <% if story_tag.tag_id == @tag.id %>
-          <%= story.subject %>
-          <%= story.content %>
-          <%else%>
-          <%= "No stories with #{@tag.name} tag." %>
+          <h3><%= story.subject %></h3><br>
+          <%= story.content %><br><br>
       <% end %>
   <% end %>
 <% end %> 
