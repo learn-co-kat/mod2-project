@@ -32,7 +32,6 @@ class StoriesController < ApplicationController
                 @tags.each do |tag_id|
                     StoryTag.create(:tag_id => tag_id, :story_id => @story.id) 
                 end
-                byebug
                 @story.save 
                 redirect_to story_path(@story)
 
